@@ -1,0 +1,24 @@
+[conf]
+    [conf.api]
+        #端口号
+        HTTPPort  = 3012
+        #运行模式
+        Mode = "dev"
+        #日志是否打印
+        SqlLog = true
+        #前台设置cookie名称
+        TokenName = "SESSION_ID"
+        #token有效时长
+        TokenExpire = 31104000 ## 60*60*24*360
+        #前端域名列表
+        WebDomain = ["https://web.item.com"]
+        #后端域名
+        AdminDomain =  "https://111.com"
+        #后台管理系统域名
+        ImageUrl = "https://xx.xx.co"
+        #分页一页显示数量
+        Limit = 10
+        #日志目录
+        LogPathRoot = "/www/wwwroot/item.com"
+        #项目静态资源目录
+        PathRoot = "/www/wwwroot/static"
