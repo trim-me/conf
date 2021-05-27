@@ -1,7 +1,0 @@
-[redis]
-    [redis.master]
-        Host = "127.0.0.1"
-        Password = ""
-        Port = 9501
-        MaxIdleConn = 1000
-        MaxOpenConn = 2000

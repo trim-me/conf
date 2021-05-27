@@ -1,0 +1,13 @@
+[redis]
+    [redis.master]
+        host = "127.0.0.1"
+        password = ""
+        port = 9501
+        max_idle_conn = 1000
+        max_open_conn = 2000
+    [redis.test]
+        host = "127.0.0.1"
+        password = ""
+        port = 9501
+        max_idle_conn = 1000
+        max_open_conn = 2000

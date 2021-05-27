@@ -1,0 +1,31 @@
+[mysql]
+    [mysql.master]
+        driver_name = "mysql"
+        host = "127.0.0.1"
+        database = "onp"
+        user = "onp"
+        password = "onp"
+        port = 3306
+        max_idle_conn = 1000
+        max_open_conn = 2000
+        sql_log = false
+    [mysql.user]
+        driver_name = "mysql"
+        host = "127.0.0.1"
+        database = "onp"
+        user = "onp"
+        password = "onp"
+        port = 3306
+        max_idle_conn = 1000
+        max_open_conn = 2000
+        sql_log = false
+    [mysql.test]
+        driver_name = "mysql"
+        host = "localhost"
+        database = "item"
+        user = "item"
+        password = "onp"
+        port = 3306
+        max_idle_conn = 1000
+        max_open_conn = 2000
+        sql_log = false
