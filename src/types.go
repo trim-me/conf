@@ -2,33 +2,32 @@ package src
 
 import "log"
 
-type Config struct {
-	Global *Global                  `json:"global"`
-	Conf   map[string]ApiConf       `json:"time_format"`
-	Mysql  map[string]MysqlConnConf `json:"mysql"`
-	Redis  map[string]RedisConnConf `json:"redis"`
-	Log    *Log                     `json:"log"`
+type ApiConfMap struct {
+	Conf map[string]*ApiConf `toml:"conf"`
 }
 
+type ApiConf struct {
+	HttpPort    int      `toml:"http_port"`
+	Mode        string   `toml:"mode"`
+	TokenName   string   `toml:"token_name"`
+	TokenExpire int      `toml:"token_expire"`
+	WebDomain   []string `toml:"web_domain"`
+	AdminDomain string   `toml:"admin_domain"`
+	ImageUrl    string   `toml:"image_url"`
+	Limit       int      `toml:"limit"`
+	LogPathRoot string   `toml:"log_path_root"`
+	PathRoot    string   `toml:"path_root"`
+}
 type Log struct {
 	Log *log.Logger
 }
 
-type Global struct {
-	Name       string `json:"name"`
-	Flag       string `json:"flag"`
-	TimeFormat string `json:"time_format"`
+type GlobalConfMap struct {
+	Global Global `toml:"global"`
 }
 
-type ApiConf struct {
-	HttpPort    int
-	Mode        string
-	TokenName   string
-	TokenExpire int
-	WebDomain   []string
-	AdminDomain string
-	ImageUrl    string
-	Limit       int
-	LogPathRoot string
-	PathRoot    string
+type Global struct {
+	Name       string `toml:"name"`
+	Flag       bool   `toml:"flag"`
+	TimeFormat string `toml:"time_format"`
 }
