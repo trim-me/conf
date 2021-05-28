@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//调用结构体
+//redis struct class struct
 type RedisType struct {
 	Db   interface{}
 	Conn *redis.Pool
@@ -30,7 +30,7 @@ type RedisConnConf struct {
 	MaxOpenConn int
 }
 
-//初始化
+//open conn
 func (redisConf *RedisConnConf) RedisInit() *redis.Pool {
 	return &redis.Pool{
 		MaxIdle:     redisConf.MaxIdleConn,

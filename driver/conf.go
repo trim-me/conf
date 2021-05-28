@@ -1,7 +1,6 @@
 package driver
 
 import (
-	"fmt"
 	"github.com/BurntSushi/toml"
 	"log"
 )
@@ -28,7 +27,6 @@ func (conf *Global) InitGlobalToml(file string) {
 	if _, err := toml.DecodeFile(FileStat(file), &GlobalConf); err != nil {
 		log.Fatal("init "+file+" failed:", err)
 	}
-	fmt.Println(GlobalConf.Global)
 }
 
 //init global toml

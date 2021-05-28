@@ -26,7 +26,7 @@ type MysqlConnConf struct {
 	SqlLog      bool   `toml:"sql_log"`       //是否打印sql
 }
 
-//初始化
+//open conn
 func (conf *MysqlConnConf) mysqlInit() *gorm.DB {
 	db, err := gorm.Open(
 		conf.DriverName,
@@ -42,11 +42,10 @@ func (conf *MysqlConnConf) mysqlInit() *gorm.DB {
 	if err != nil {
 		log.Fatal("mysql connect failed:", err)
 	}
-	//连接池信息
-	db.DB().SetMaxIdleConns(conf.MaxIdleConn) //设置最大空闲数
-	db.DB().SetMaxOpenConns(conf.MaxOpenConn) //设置最大连接数
+	db.DB().SetMaxIdleConns(conf.MaxIdleConn) //max free(idle) conn
+	db.DB().SetMaxOpenConns(conf.MaxOpenConn) //max conn
 	db.SingularTable(true)
-	db.LogMode(conf.SqlLog) //请求日志
+	db.LogMode(conf.SqlLog) //sql run log whether output
 	return db
 }
 
@@ -56,7 +55,7 @@ func (conf *MysqlConnConf) InitMysqlToml(file string) {
 	}
 }
 
-//获取指定数据库连接池
+//get database by name
 func (conf *MysqlConnConf) GetPool(tomlName string) *gorm.DB {
 	if _, ok := MysqlConfMapList.Mysql[tomlName]; !ok {
 		log.Fatal("no have database tomlName pool:", tomlName)

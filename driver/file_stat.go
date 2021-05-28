@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+
+//verify file isExist
 func FileStat(file string) string {
 	var (
 		str, _          = os.Getwd()
