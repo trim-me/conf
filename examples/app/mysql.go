@@ -1,13 +1,13 @@
 package main
 
 import (
-	"driver/src"
 	"fmt"
+	"github.com/trim-me/conf/driver"
 )
 
 func main() {
 	//set variable
-	var MasterConf src.MysqlConnConf
+	var MasterConf driver.MysqlConnConf
 	//get conf
 	MasterConf.InitMysqlToml("/conf/api/mysql.toml")
 	//get db pool by name

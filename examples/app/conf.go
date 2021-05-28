@@ -1,20 +1,22 @@
 package main
 
 import (
-	"driver/src"
 	"fmt"
+	"github.com/trim-me/conf/driver"
 )
 
 func main() {
-	src.GetGlobal()
+	//global variable's
+	driver.GetGlobal()
+	//get conf with specific filename
 	GetNameConf()
 }
 
 //get conf by name
 func GetNameConf() {
-	var conf src.ApiConf
+	var conf driver.ApiConf
 	conf.InitConfToml("/conf/api/conf.toml")
-	ApiConf := src.ConfMap.Conf["api"]
+	ApiConf := driver.ConfMap.Conf["api"]
 	fmt.Println(ApiConf)
 }
 

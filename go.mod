@@ -1,4 +1,4 @@
-module driver
+module github.com/trim-me/conf
 
 go 1.16
 

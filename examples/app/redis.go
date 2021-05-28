@@ -1,13 +1,13 @@
 package main
 
 import (
-	"driver/src"
 	"fmt"
+	"github.com/trim-me/conf/driver"
 )
 
 func main() {
 	//set variable
-	var MasterConf src.RedisConnConf
+	var MasterConf driver.RedisConnConf
 	//get conf
 	MasterConf.InitRedisToml("/conf/api/redis.toml")
 	//get redis pool by name
