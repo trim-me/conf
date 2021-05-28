@@ -23,7 +23,7 @@ type Log struct {
 }
 
 type GlobalConfMap struct {
-	Global Global `toml:"global"`
+	Global *Global `toml:"global"`
 }
 
 type Global struct {
