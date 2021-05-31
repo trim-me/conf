@@ -1,13 +1,12 @@
-[conf]
-    [conf.api]
-        http_port  = 3012
-        mode = "dev"
-        sql_log = true
-        token_name = "SESSION_ID"
-        token_expire = 31104000 ## 60*60*24*360
-        web_domain = ["https://web.item.com"]
-        admin_domain =  "https://111.com"
-        image_url = "https://xx.xx.co"
-        limit = 10
-        log_path_root = "/www/wwwroot/item.com"
-        path_root = "/www/wwwroot/static"
+[api]
+http_port  = 3012
+mode = "dev"
+sql_log = true
+token_name = "SESSION_ID"
+token_expire = 31104000 ## 60*60*24*360
+web_domain = ["https://web.item.com"]
+admin_domain =  "https://111.com"
+image_url = "https://xx.xx.co"
+limit = 10
+log_path_root = "/www/wwwroot/item.com"
+path_root = "/www/wwwroot/static"

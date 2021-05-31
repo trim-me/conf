@@ -43,20 +43,16 @@ func main() {
 
 ### use example for api conf  
 ```golang
+
 func main() {
 	//global variable's
-	driver.GetGlobal()
-	//get conf with specific filename
-	GetNameConf()
+	driver.GlobalConf.InitGlobalToml("/conf/global.toml")
+	fmt.Println(driver.GlobalConf.Global)
+	//get api conf
+	driver.ConfMap.InitConfToml("/conf/api/conf.toml")
+	fmt.Println(driver.ConfMap.Api)
 }
 
-//get conf by name
-func GetNameConf() {
-	var conf driver.ApiConf
-	conf.InitConfToml("/conf/api/conf.toml")
-	ApiConf := driver.ConfMap.Conf["api"]
-	fmt.Println(ApiConf)
-}
 
 ```
 

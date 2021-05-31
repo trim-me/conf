@@ -2,9 +2,7 @@ package driver
 
 import "log"
 
-type ApiConfMap struct {
-	Conf map[string]*ApiConf `toml:"conf"`
-}
+
 
 type ApiConf struct {
 	HttpPort    int      `toml:"http_port"`
@@ -18,13 +16,11 @@ type ApiConf struct {
 	LogPathRoot string   `toml:"log_path_root"`
 	PathRoot    string   `toml:"path_root"`
 }
+
 type Log struct {
-	Log *log.Logger
+	*log.Logger
 }
 
-type GlobalConfMap struct {
-	Global *Global `toml:"global"`
-}
 
 type Global struct {
 	Name       string `toml:"name"`
