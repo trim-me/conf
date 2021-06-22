@@ -9,7 +9,8 @@ func main() {
 	//set variable
 	var MasterConf driver.RedisConnConf
 	//get conf
-	MasterConf.InitRedisToml("/conf/api/redis.toml")
+	var path = "/conf/api/redis.toml"
+	MasterConf.InitRedisToml(path)
 	//get redis pool by name
 	MasterDb := MasterConf.GetPool("master")
 	//get redis pool by name

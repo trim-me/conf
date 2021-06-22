@@ -12,7 +12,7 @@ type Err struct {
 }
 
 //init run log of service
-func LogInit(name string) *log.Logger {
+func Loginit(name string) *log.Logger {
 	_ = os.MkdirAll("./log", os.ModePerm)
 	file := "./log/" + name + ".log"
 	logFile, err := os.OpenFile(file, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0766)

@@ -1,7 +1,5 @@
 package driver
 
-
-
 type ApiConf struct {
 	HttpPort    int      `toml:"http_port"`
 	Mode        string   `toml:"mode"`
