@@ -17,7 +17,7 @@ type ApiConf struct {
 	PathRoot    string   `toml:"path_root"`
 }
 
-type Log struct {
+type RunLog struct {
 	*log.Logger
 }
 

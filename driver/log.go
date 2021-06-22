@@ -5,9 +5,18 @@ import (
 	"os"
 )
 
-//init log file
-func Loginit(name string) *log.Logger {
-	file := "../logs/" + name + ".log"
+type Err struct {
+	err  error
+	code int
+	msg  string
+}
+
+var LogInit RunLog
+
+//init run log of service
+func (r *RunLog) logInit(name string) *log.Logger {
+	_ = os.MkdirAll("./log", os.ModePerm)
+	file := "./log/" + name + ".log"
 	logFile, err := os.OpenFile(file, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0766)
 	if err != nil {
 		log.Fatal("初始化日志失败:", err)
