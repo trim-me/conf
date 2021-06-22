@@ -11,10 +11,8 @@ type Err struct {
 	msg  string
 }
 
-var LogInit RunLog
-
 //init run log of service
-func (r *RunLog) logInit(name string) *log.Logger {
+func LogInit(name string) *log.Logger {
 	_ = os.MkdirAll("./log", os.ModePerm)
 	file := "./log/" + name + ".log"
 	logFile, err := os.OpenFile(file, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0766)

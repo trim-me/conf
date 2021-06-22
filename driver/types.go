@@ -1,7 +1,5 @@
 package driver
 
-import "log"
-
 
 
 type ApiConf struct {
@@ -16,11 +14,6 @@ type ApiConf struct {
 	LogPathRoot string   `toml:"log_path_root"`
 	PathRoot    string   `toml:"path_root"`
 }
-
-type RunLog struct {
-	*log.Logger
-}
-
 
 type Global struct {
 	Name       string `toml:"name"`
