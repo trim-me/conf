@@ -17,4 +17,5 @@ type Global struct {
 	Name       string `toml:"name"`
 	Flag       bool   `toml:"flag"`
 	TimeFormat string `toml:"time_format"`
+	DateFormat string `toml:"date_format"`
 }
