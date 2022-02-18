@@ -48,12 +48,12 @@ func (redisConf *RedisConnConf) RedisInit() *redis.Pool {
 				//redis.DialPassword(""), //放到了下面进行密码验证
 			)
 			if err != nil {
-				log.Fatal("redis数据库连接失败:", err)
+				log.Fatal("redis connect failed :", err)
 			}
 			if redisConf.Password != "" {
 				if _, err := conn.Do("AUTH", redisConf.Password); err != nil {
 					conn.Close()
-					log.Fatal("redis数据库授权失败:", err)
+					log.Fatal("redis auth failed, The password may be incorrect:", err)
 				}
 			}
 			return conn, nil
