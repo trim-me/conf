@@ -9,7 +9,7 @@ func main() {
 	//set variable
 	var MasterConf driver.MysqlConnConf
 	//get conf
-	var path = "/conf/api/mysql.toml"
+	var path = "/conf/app/mysql.toml"
 	MasterConf.InitMysqlToml(path)
 	//get db pool by name
 	MasterDb := MasterConf.GetPool("master")

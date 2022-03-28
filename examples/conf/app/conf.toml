@@ -1,0 +1,14 @@
+[app]
+    http_port = 3012
+    mode = "dev"
+    limit = 10
+[domain]
+    admin_domain = "https://111.com"
+    web_domain = ["https://web.item.com"]
+    image_url = "https://xx.xx.co"
+[token]
+    token_expire = 31104000
+    token_name = "SESSION_ID"
+[path]
+    log_path_root = "/www/wwwroot/item.com"
+    path_root = "/www/wwwroot/static"
