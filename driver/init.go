@@ -6,8 +6,8 @@ import (
 )
 
 //init toml
-func InitConfToml(file string) {
-	if _, err := toml.DecodeFile(FileStat(file), &ConfMap); err != nil {
+func InitConfToml(file string, ConfMap interface{}) {
+	if _, err := toml.DecodeFile(FileStat(file), ConfMap); err != nil {
 		log.Fatal("init "+file+" failed:", err)
 	}
 }
