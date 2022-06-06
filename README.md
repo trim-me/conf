@@ -12,47 +12,97 @@
 ### use example for Mysql 
 ```golang 
 func main() {
-	//set variable
-	var MasterConf driver.MysqlConnConf
-	//get conf
-	MasterConf.InitMysqlToml("/conf/api/mysql.toml")
-	//get db pool by name
-	MasterDb := MasterConf.GetPool("master")
-	//get db pool by name
-	UserDb := MasterConf.GetPool("user")
-	fmt.Println(MasterDb)
-	fmt.Println(UserDb)
+    //set variable
+    var MasterConf driver.MysqlConnConf
+    //get conf
+    var path = "/conf/app/mysql.toml"
+    MasterConf.InitMysqlToml(path)
+    //get db pool by name
+    MasterDb := MasterConf.GetPool("master")
+    //get db pool by name
+    UserDb := MasterConf.GetPool("user")
+    fmt.Println(MasterDb)
+    fmt.Println(UserDb)
 }
 ```
 
 ### use example for Redis 
 ```golang
 func main() {
-	//set variable
-	var MasterConf driver.RedisConnConf
-	//get conf
-	MasterConf.InitRedisToml("/conf/api/redis.toml")
-	//get redis pool by name
-	MasterDb := MasterConf.GetPool("master")
-	//get redis pool by name
-	UserDb := MasterConf.GetPool("test")
-	fmt.Println(MasterDb)
-	fmt.Println(UserDb)
+    //set variable
+    var MasterConf driver.RedisConnConf
+    //get conf
+    var path = "/conf/app/redis.toml"
+    MasterConf.InitRedisToml(path)
+    //get redis pool by name
+    MasterDb := MasterConf.GetPool("master")
+    //get redis pool by name
+    UserDb := MasterConf.GetPool("test")
+    fmt.Println(MasterDb)
+    fmt.Println(UserDb)
 }
 ```
 
 ### use example for api conf  
 ```golang
 
+var (
+	ConfMap    AppConfMap
+	GlobalConf GlobalConfMap
+)
+
 func main() {
-	//global variable's
-	driver.GlobalConf.InitGlobalToml("/conf/global.toml")
-	fmt.Println(driver.GlobalConf.Global)
 	//get api conf
-	driver.ConfMap.InitConfToml("/conf/api/conf.toml")
-	fmt.Println(driver.ConfMap.Api)
+	AppConfToml()
+
+	//get global conf
+	GlobalConfToml()
+
+}
+func AppConfToml() {
+	AppConfPath := "/conf/app/conf.toml"
+	//get app conf
+	driver.InitConfToml(AppConfPath, &ConfMap)
+	fmt.Println(ConfMap.App.HttpPort)
 }
 
+func GlobalConfToml() {
+	GlobalConfPath := "/conf/global.toml"
+	//get api conf
+	driver.InitConfToml(GlobalConfPath, &GlobalConf)
+	fmt.Println(GlobalConf)
+}
+
+
+type GlobalConfMap struct {
+	Global struct {
+		Name       string `toml:"name"`
+		Flag       bool   `toml:"flag"`
+		TimeFormat string `toml:"time_format"`
+		DateFormat string `toml:"date_format"`
+	} `toml:"global"`
+}
+
+type AppConfMap struct {
+	App struct {
+		HttpPort int    `toml:"http_port"`
+		Mode     string `toml:"mode"`
+		Limit    int    `toml:"limit"`
+	} `toml:"app"`
+	Domain struct {
+		AdminDomain string   `toml:"admin_domain"`
+		WebDomain   []string `toml:"web_domain"`
+		ImageUrl    string   `toml:"image_url"`
+	} `toml:"domain"`
+	Token struct {
+		TokenName   string `toml:"token_name"`
+		TokenExpire int    `toml:"token_expire"`
+	} `toml:"Token"`
+	Path struct {
+		LogPathRoot string `toml:"log_path_root"`
+		PathRoot    string `toml:"path_root"`
+	} `toml:"Path"`
+}
 
 ```
 
