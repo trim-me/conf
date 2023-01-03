@@ -7,14 +7,14 @@ import (
 
 func main() {
 	//set variable
-	var MasterConf driver.RedisConnConf
+	var RedisDriver driver.RedisConnConf
 	//get conf
 	var path = "/conf/app/redis.toml"
-	MasterConf.InitRedisToml(path)
+	RedisDriver.InitRedisToml(path)
 	//get redis pool by name
-	MasterDb := MasterConf.GetPool("master")
+	MasterDb := RedisDriver.GetPool("master")
 	//get redis pool by name
-	UserDb := MasterConf.GetPool("test")
+	UserDb := RedisDriver.GetPool("test")
 	fmt.Println(MasterDb)
 	fmt.Println(UserDb)
 }

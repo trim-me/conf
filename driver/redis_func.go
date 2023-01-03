@@ -192,3 +192,21 @@ func (r RedisType) IncrBy(k string, v interface{}) (reply interface{}, err error
 	}
 	return
 }
+
+//阻塞取出 BRPOP BLPOP  通过push写入值
+func (r RedisType) BrPop(k string, timeout int) (val string, err error) {
+	conn := r.Conn.Get()
+	defer conn.Close()
+	if _, err = conn.Do("SELECT", r.Db); err != nil {
+		return
+	}
+	value, _ := conn.Do("BRPOP", k, timeout)
+	if value != nil {
+		if arrVal, ok := value.([]interface{}); ok {
+			//key := string(arrVal[0].([]byte))
+			val = string(arrVal[1].([]byte))
+			//执行事件
+		}
+	}
+	return
+}

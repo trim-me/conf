@@ -7,14 +7,14 @@ import (
 
 func main() {
 	//set variable
-	var MasterConf driver.MysqlConnConf
+	var MysqlDriver driver.MysqlConnConf
 	//get conf
 	var path = "/conf/app/mysql.toml"
-	MasterConf.InitMysqlToml(path)
+	MysqlDriver.InitMysqlToml(path)
 	//get db pool by name
-	MasterDb := MasterConf.GetPool("master")
+	MasterDb := MysqlDriver.GetPool("master")
 	//get db pool by name
-	UserDb := MasterConf.GetPool("user")
+	UserDb := MysqlDriver.GetPool("user")
 	fmt.Println(MasterDb)
 	fmt.Println(UserDb)
 }
