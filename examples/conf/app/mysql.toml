@@ -3,22 +3,26 @@
         driver_name = "mysql"
         host = "127.0.0.1"
         database = "onp"
-        user = "onp"
-        password = "onp"
+        user = "root"
+        password = "123456"
         port = 3306
         max_idle_conn = 1000
         max_open_conn = 2000
-        sql_log = false
+        conn_max_idle_time=60
+        conn_max_life_time=3600
+        sql_log = 4
     [mysql.user]
         driver_name = "mysql"
         host = "127.0.0.1"
         database = "onp"
-        user = "onp"
-        password = "onp"
+        user = "root"
+        password = "123456"
         port = 3306
         max_idle_conn = 1000
         max_open_conn = 2000
-        sql_log = false
+        conn_max_idle_time=60
+        conn_max_life_time=3600
+        sql_log = 4
     [mysql.test]
         driver_name = "mysql"
         host = "localhost"
@@ -28,4 +32,6 @@
         port = 3306
         max_idle_conn = 1000
         max_open_conn = 2000
-        sql_log = false
+        conn_max_idle_time=60
+        conn_max_life_time=3600
+        sql_log = 4

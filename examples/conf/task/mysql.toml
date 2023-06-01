@@ -4,8 +4,10 @@
         host = "localhost"
         database = "item"
         user = "item"
-        password = "111"
+        password = "onp"
         port = 3306
         max_idle_conn = 1000
         max_open_conn = 2000
-        sql_log = false
+        conn_max_idle_time=60
+        conn_max_life_time=3600
+        sql_log = 4
